@@ -1,42 +1,33 @@
 function deepcompare(a,b){
- var ver;
+ var ver = false;
  var get_type_a = typeof a;
  var get_type_b = typeof b
-if((get_type_a == "object") &&  (get_type_b == "object")){
- if(get_type_a === get_type_b){
-   var get_keys_a = Object.keys(a);
-   var get_keys_b = Object.keys(b);
-   for(i in get_keys_a){
-     var type_a = typeof get_keys_a[i];
-     for(j in get_keys_b){
-      var type_b = typeof get_keys_b[j];
-       if((i === j) && (type_a === "object") && (type_b === "object")){
-          deepcompare(get_keys_a[i],get_keys_b[j]);
+ if((get_type_a === "object") && (get_type_b === "object")){
+  var getkeys_a = Object.keys(a);
+  var getkeys_b = Object.keys(b);
+  for(var i of getkeys_a){
+      var typekeys_a = typeof getkeys_a[i];
+        alert("a type, i : " + " " + typekeys_a);
+    for(var j of getkeys_b){
+      var typekeys_b = typeof getkeys_b[j];
+         alert("a type, j : " + " " + typekeys_b);
+      if((i === j) && (getkeys_a[i] === "object") && (getkeys_b[j] === "object")){
+          alert("i :" + " " + i + " " + "val :" + " " + getkeys_a[i] + " " + " j :" + " " + j + " " + "val :" + " " + getkeys_b[j]);
+          deepcompare(getkeys_a[i],getkeys_b[j]);
        }
-       else if((i === j) && (type_a === type_b) && (get_keys_a[i] == get_keys_b[j])){
-          alert(type_a + type_b);
+      else if((i === j) && (getkeys_a[i] === getkeys_b[j]))
           ver = true;
-       }
-       else
+      else if((i === j) && (getkeys_a[i] !== getkeys_b[j]))
           ver = false;
-     } // fin for i
-   }// fin for j
-  //console.log(ver);
+     alert( "i :" + i + " " + "j:" + " " + j );
+    }// fin for j
+  } // fin for i
+    //alert("travail a faire ");
  }//contraire meme type
- else if(a!== b)
-   ver = false;
+ else if(a === b)
+  ver = true;
+ console.log(ver);
 }
-else if((get_type_a != "object") ||  (get_type_b != "object")){
-   ver = false;
-}
-else if((get_type_a != "object") &&  (get_type_b != "object")){
-     if(a == b)
-       ver = true;
-     else
-       ver = false;
-}
-    console.log(ver);
-}
-var x = {1:2, 3:4,5:6, 5:6, 9:{1:2, 3:4,5:6, 7:{5:8, 7:9}}};
-var y = {1:2, 3:4,5:6, 5:6, 9:{1:2, 3:4,5:6, 7:{5:8, 7:9}}};
+var x = {1:2, 3:4,5:6, 5:6, 4:{6:8,9:0}};
+var y = {1:2, 3:4,5:6, 5:6, 4:{6:8,9:1}};
 deepcompare(x,y);
