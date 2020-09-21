@@ -18,25 +18,29 @@ var typeb;
                   deepcompare(a[i],b[j]);
       }
       else if((i === j) && (typeof a[i] !== "object") && (typeof b[j] !== "object") && (a[i] === b[j])){
-          alert(true);
+          alert("non object" + " " + true);
           ver = true;
       }
       else if((i === j) && (typeof a[i] !== "object") && (typeof b[j] !== "object") && (a[i] !== b[j])){
-          alert(false);
+          alert(" non object " + " " + false);
           ver = false;
           break;
       }
      } // fin j
     }// fin i
  }// fin if type object
- else if(((type_a !== "object") && (type_b !== "object")) && (a !== b))
+ else if(((type_a !== "object") && (type_b !== "object")) && (a !== b)){
+     alert("non object" + " " + false);
      ver = false
- else if(((type_a !== "object") && (type_b !== "object")) && (a == b)) 
+ }
+ else if(((type_a !== "object") && (type_b !== "object")) && (a == b)) {
+     alert("non object" + " " + true);
      ver = true;
+ }
  console.log(ver);
 }
-deepcompare(1,2);
-deepcompare("a","b");
-deepcompare("a","a");
-deepcompare(1,1);
+//deepcompare(1,2);
+//deepcompare("a","b");
+//deepcompare("a","a");
+//deepcompare(1,1);
 deepcompare({1:2, 3:{2:5, 6:7}},{1:2, 3:{2:5, 6:8}});
