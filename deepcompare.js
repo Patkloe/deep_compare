@@ -44,3 +44,22 @@ var typeb;
 //deepcompare("a","a");
 //deepcompare(1,1);
 deepcompare({1:2, 3:{2:5, 6:7}},{1:2, 3:{2:5, 6:8}});
+
+// to implement
+
+/*function deepcompare(a,b){
+  if(a === b)
+    return true;
+  else
+    return false;
+}
+var ver = true;
+tab1 = [2,4,7,9];
+tab2 = [2,4,7,9];
+for(var i = 0; i < tab1.length; i++)
+ if(deepcompare(tab1[i],tab2[i]) === false){  
+     ver = deepcompare(tab1[i],tab2[i]);
+     break;
+ }
+console.log(ver);*/
+
