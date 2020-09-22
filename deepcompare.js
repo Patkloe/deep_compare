@@ -19,6 +19,10 @@ function deepcompare(x,y){
            }
            else if(i === j)
               ver = compare(x[i],y[j]);
+              if( ver === false){
+                    alert("trouve");
+                    break;
+              }
          } // fin for j
        } // fin for i
   }//fin if
@@ -27,4 +31,4 @@ function deepcompare(x,y){
   }
   console.log(ver);
 }
-deepcompare({1:2,3:5},{1:2,3:7});
+deepcompare({1:2,3:{4:5},7:{1:5,4:2}},{1:2,3:{4:5},7:{1:5,4:2}});
